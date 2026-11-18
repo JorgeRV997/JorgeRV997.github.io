@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 510" role="img" aria-label="Selected enantiomeric excesses for products obtained from indene using Purpureocillium lilacinum: syn-indane-1,2-diol 98.2 percent, 3-hydroxyindanone 71.9 percent, and 2-hydroxyindanone 43 percent">
+<rect width="1040" height="510" fill="#f8faf5" rx="12"/>
+<text x="52" y="58" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#173d2c">Selected stereoselectivity results</text>
+<text x="52" y="89" font-family="Arial,sans-serif" font-size="16" fill="#567361">Indene biotransformation · <tspan font-style="italic">Purpureocillium lilacinum</tspan> BC17-2</text>
+<line x1="370" y1="120" x2="370" y2="418" stroke="#cad7cb" stroke-width="2" />
+<line x1="370" y1="418" x2="964" y2="418" stroke="#c4d5c8" stroke-width="2"/>
+<g font-family="Arial,sans-serif" font-size="16" fill="#6b806f"><text x="364" y="451">0</text><text x="647" y="451">50</text><text x="944" y="451">100%</text></g>
+<g font-family="Arial,sans-serif" font-size="21" font-weight="600" fill="#244a34">
+<text x="52" y="176">syn-Indane-1,2-diol (7)</text><text x="52" y="278">3-Hydroxyindanone (6)</text><text x="52" y="380">2-Hydroxyindanone (5)</text>
+</g>
+<g><rect x="370" y="140" width="583" height="47" rx="7" fill="#2a7550"/><rect x="370" y="242" width="427" height="47" rx="7" fill="#659b79"/><rect x="370" y="344" width="255" height="47" rx="7" fill="#acc5a8"/></g>
+<g font-family="Arial,sans-serif" font-size="23" font-weight="700"><text x="899" y="171" fill="#fff">98.2%</text><text x="746" y="273" fill="#fff">71.9%</text><text x="575" y="375" fill="#1f5337">43.0%</text></g>
+<text x="52" y="487" font-family="Arial,sans-serif" font-size="15" fill="#5c7665">Visualisation redrawn from published enantiomeric excess (ee) data · JMSE (2025), 13, 1386</text>
+</svg>

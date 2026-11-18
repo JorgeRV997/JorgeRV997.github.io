@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Structural elucidation &amp; computational analysis | Jorge Roca Virués de Segovia</title><meta name="description" content="Research workflow for conformational modelling, NMR calculations, TD-DFT ECD, DP4+ and published stereochemical assignments."/><link href="assets/style.css" rel="stylesheet"/><style>
+/* V16 Research detail: editorial academic layout, desktop-first */
+.np16{background:#fcfbf7;color:#173b2a}
+.np16 *{box-sizing:border-box}
+.np16 .np-shell{max-width:1240px;padding:0 38px;margin:auto}
+.np16 .np-hero{background:linear-gradient(109deg,#fafaf3 0%,#f5f7ef 53%,#e2e9df 100%);border-bottom:1px solid #d7e1d2;position:relative;overflow:hidden}
+.np16 .np-hero-inner{min-height:345px;display:grid;grid-template-columns:minmax(0,1fr) 33%;gap:44px;align-items:center;padding-top:32px;padding-bottom:37px}
+.np16 .np-eyebrow{display:block;font:700 10px/1.3 Arial,sans-serif;letter-spacing:.16em;color:#31704d;margin-bottom:14px}
+.np16 h1{font:700 clamp(39px,4.3vw,59px)/1.035 Georgia,serif;letter-spacing:-.045em;color:#103828;margin:0 0 20px}
+.np16 .np-hero p{font:15.5px/1.67 Arial,sans-serif;max-width:770px;margin:12px 0 0;color:#355345}
+.np16 .np-back{display:inline-flex;align-items:center;gap:7px;color:#1e6945;font:700 12px Arial,sans-serif;margin:0 0 20px}
+.np16 .np-back:hover{text-decoration:underline;text-underline-offset:4px}
+.np16 .np-hero-img{width:100%;aspect-ratio:1/.92;border-radius:15px;background:radial-gradient(circle at 46% 42%,#f7f5e9 0%,#d1dfd0 78%,#bfd0c0 100%);display:grid;place-items:center;position:relative;border:1px solid #dae4d6;overflow:hidden}
+.np16 .np-hero-img img{width:110%;height:110%;object-fit:contain;filter:drop-shadow(0 9px 15px rgba(27,57,41,.21))}
+.np16 .np-img-label{position:absolute;bottom:13px;left:15px;right:15px;padding:8px 10px;border-radius:5px;background:rgba(251,251,244,.88);color:#365c48;font:10px/1.4 Arial,sans-serif;letter-spacing:.015em}
+.np16 .np-intro{display:grid;grid-template-columns:27% 1fr;gap:58px;padding-top:43px;padding-bottom:36px;border-bottom:1px solid #dce4d8}
+.np16 .np-intro h2{font:700 26px/1.2 Georgia,serif;letter-spacing:-.025em;margin:4px 0 0;color:#0d3d2a}
+.np16 .np-intro-text p{font:14px/1.8 Arial,sans-serif;color:#314c3b;margin:0 0 14px}
+.np16 .np-intro-text p:last-child{margin-bottom:0}
+.np16 .np-methods{display:flex;flex-wrap:wrap;gap:8px;padding-top:13px}
+.np16 .np-methods span{background:#eaf0e5;border:1px solid #d1dfd0;border-radius:5px;padding:7px 10px;color:#31634b;font:700 11px/1.25 Arial,sans-serif}
+.np16 .np-section-heading{display:flex;justify-content:space-between;align-items:end;gap:25px;margin:45px 0 21px}
+.np16 .np-section-heading h2{font:700 31px/1.14 Georgia,serif;letter-spacing:-.03em;color:#0f3d2b;margin:0}
+.np16 .np-section-heading p{font:12px/1.55 Arial,sans-serif;color:#6b8170;max-width:320px;margin:0;text-align:right}
+.np16 .np-study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.np16 .np-study{border:1px solid #dce5d8;border-radius:11px;overflow:hidden;background:#fffefa;display:flex;flex-direction:column;min-width:0}
+.np16 .np-study-visual{height:232px;overflow:hidden;background:#f8f8f2;display:grid;place-items:center;padding:17px 22px;border-bottom:1px solid #e0e6dc}
+.np16 .np-study-visual img{display:block;max-height:100%;max-width:100%;width:100%;height:190px;object-fit:contain;mix-blend-mode:multiply}
+.np16 .np-study-body{padding:22px 25px 24px;display:flex;flex-direction:column;flex:1}
+.np16 .np-study-id{font:700 10px/1.4 Arial,sans-serif;color:#4f8b67;letter-spacing:.10em;margin-bottom:10px}
+.np16 .np-study h3{font:700 23px/1.16 Georgia,serif;color:#103d2b;margin:0 0 13px}
+.np16 .np-study p{font:13.5px/1.67 Arial,sans-serif;color:#354d3c;margin:0 0 16px}
+.np16 .np-study-meta{display:flex;gap:11px;align-items:baseline;padding:11px 0;border-top:1px solid #e3e9df;margin-top:auto}
+.np16 .np-study-meta strong{font:700 27px Georgia,serif;color:#1b6c45;flex:0 0 80px}
+.np16 .np-study-meta span{font:11px/1.5 Arial,sans-serif;color:#3e5a46}
+.np16 .np-paper{font:700 12px/1.35 Arial,sans-serif;color:#136443;display:inline-flex;gap:9px;align-items:center;padding-top:14px}
+.np16 .np-paper:hover{text-decoration:underline;text-underline-offset:3px}
+.np16 .np-caption{font:10.5px/1.5 Arial,sans-serif;color:#6d7e6c;margin:12px 0 0}
+.np16 .np-kribbella{display:grid;grid-template-columns:37% 1fr;gap:28px;min-height:302px;border:1px solid #dbe4d7;border-radius:12px;background:#fffefa;overflow:hidden;margin-top:20px}
+.np16 .np-bacteria-visual{background:linear-gradient(148deg,#dfe9e1 0,#cadbd0 59%,#b0cbbc 100%);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;padding:23px 26px}
+.np16 .np-bacteria-visual:after{content:'';position:absolute;width:245px;height:245px;right:-80px;top:45px;border:1px solid rgba(18,91,53,.18);border-radius:50%;box-shadow:0 0 0 20px rgba(255,255,255,.08),0 0 0 56px rgba(255,255,255,.07)}
+.np16 .np-bacteria-visual .np-visual-tag{position:relative;z-index:1;font:700 10px Arial,sans-serif;letter-spacing:.13em;color:#347257}
+.np16 .np-bacteria-visual strong{position:relative;z-index:1;display:block;font:700 38px/1.03 Georgia,serif;color:#15523a;letter-spacing:-.05em}
+.np16 .np-bacteria-visual span{position:relative;z-index:1;font:12px/1.55 Arial,sans-serif;color:#3f6855}
+.np16 .np-bacteria-copy{padding:28px 34px 24px 2px}
+.np16 .np-bacteria-copy h3{font:700 26px/1.16 Georgia,serif;color:#103d2b;margin:0 0 14px}
+.np16 .np-bacteria-copy p{font:13.5px/1.68 Arial,sans-serif;color:#34503e;margin:0 0 13px}
+.np16 .np-bacteria-copy .np-facts{font:12px/1.5 Arial,sans-serif;color:#276144;background:#ebf2ea;border-radius:7px;padding:10px 12px;margin:14px 0 0}
+.np16 .np-thesis{display:grid;grid-template-columns:29% 1fr;gap:27px;align-items:center;border-top:1px solid #dce4d8;padding:31px 0 31px;margin-top:37px}
+.np16 .np-thesis-photo{border-radius:10px;background:radial-gradient(circle,#eff2e6,#dce5d8);display:flex;align-items:center;justify-content:center;overflow:hidden;aspect-ratio:1/.88}
+.np16 .np-thesis-photo img{max-width:110%;width:105%;height:108%;object-fit:contain;filter:drop-shadow(0 7px 11px rgba(27,57,41,.2))}
+.np16 .np-thesis h3{font:700 24px/1.18 Georgia,serif;color:#103d2b;margin:0 0 11px}
+.np16 .np-thesis p{font:13px/1.72 Arial,sans-serif;color:#3c5745;margin:0 0 11px}
+.np16 .np-thesis .np-boundary{border-left:3px solid #76aa81;padding:6px 13px;margin:12px 0 0;background:#f0f5ed;font:12px/1.6 Arial,sans-serif;color:#426b50}
+.np16 .np-conclusion{background:#eaf1e7;border:1px solid #d5e3d0;border-radius:10px;padding:23px 27px;display:grid;grid-template-columns:23% 1fr;gap:20px;margin:5px 0 35px}
+.np16 .np-conclusion h2{font:700 22px/1.2 Georgia,serif;color:#16442f;margin:0}
+.np16 .np-conclusion p{font:13px/1.7 Arial,sans-serif;color:#3d5d46;margin:0}
+.np16 .np-foot{padding:19px 38px 29px;border-top:1px solid #e3e8e0;max-width:1240px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px;color:#829184;font:10px/1.4 Arial,sans-serif}
+.np16 .np-foot a{color:#276d49;font-weight:700}
+@media(max-width:900px){.np16 .np-hero-inner{grid-template-columns:1fr 30%;gap:25px}.np16 .np-shell{padding:0 22px}.np16 .np-intro{gap:25px;grid-template-columns:29% 1fr}.np16 .np-kribbella{grid-template-columns:34% 1fr}}
+@media(max-width:680px){.np16 .np-shell{padding:0 17px}.np16 .np-hero-inner{grid-template-columns:1fr;gap:17px;padding-top:24px;padding-bottom:24px}.np16 h1{font-size:37px}.np16 .np-hero-img{display:none}.np16 .np-intro{display:block;padding-top:23px;padding-bottom:26px}.np16 .np-intro h2{margin-bottom:13px}.np16 .np-study-grid{grid-template-columns:1fr}.np16 .np-study-visual{height:220px}.np16 .np-section-heading{display:block;margin-top:31px}.np16 .np-section-heading p{text-align:left;margin-top:7px}.np16 .np-kribbella{grid-template-columns:1fr}.np16 .np-bacteria-visual{min-height:174px}.np16 .np-bacteria-visual strong{font-size:32px}.np16 .np-bacteria-copy{padding:22px}.np16 .np-thesis{grid-template-columns:1fr}.np16 .np-thesis-photo{max-height:230px}.np16 .np-conclusion{grid-template-columns:1fr;gap:10px}.np16 .np-foot{padding:18px;display:block}}
+
+/* V17 scientific results expansion */
+.np16 .np-study-grid{gap:22px;align-items:stretch}
+.np16 .np-study-visual{height:250px}
+.np16 .np-study-body{padding:25px 27px 26px}
+.np16 .np-study-body p{margin:0 0 12px}
+.np16 .np-results{margin:12px 0 14px;padding:15px 17px;border:1px solid #d8e5d9;background:#f2f7ef;border-radius:8px;}
+.np16 .np-results-title{font:700 10px/1.2 Arial,sans-serif;letter-spacing:.13em;color:#327456;margin-bottom:9px}
+.np16 .np-results ul{margin:0;padding:0 0 0 17px;color:#344c3a;font:12px/1.6 Arial,sans-serif}
+.np16 .np-results li{margin:4px 0}
+.np16 .np-bio{border-top:1px solid #dce7d7;padding-top:15px;margin-top:5px;}
+.np16 .np-bio h4{margin:0 0 9px;font:700 16px/1.3 Georgia,serif;color:#174732}
+.np16 .np-bio p{margin:0 0 10px;font:12.8px/1.65 Arial,sans-serif;color:#385442}
+.np16 .np-quant{display:flex;align-items:baseline;gap:12px;border-left:3px solid #31805b;background:#eaf3e9;padding:11px 13px;margin:11px 0 13px;border-radius:0 6px 6px 0}
+.np16 .np-quant strong{font:700 20px/1.1 Georgia,serif;color:#17633e;white-space:nowrap}
+.np16 .np-quant span{font:11.5px/1.48 Arial,sans-serif;color:#3c5c48}
+.np16 .np-study-meta{margin-top:15px}
+.np16 .np-kribbella{grid-template-columns:44% 1fr;align-items:stretch}
+.np16 .np-bacteria-visual{padding:20px;background:#f6f7f1;display:flex;justify-content:center;gap:11px}
+.np16 .np-bacteria-visual:after{display:none}
+.np16 .np-structure-ref{display:block;font:11px/1.4 Arial,sans-serif;text-align:center;color:#527360}
+.np16 .np-structure-ref a{color:#236942;text-decoration:underline;text-underline-offset:2px}
+.np16 .np-structure-original{display:block;width:100%;height:310px;object-fit:contain;background:#fff;border:1px solid #e1e8dd;border-radius:7px}
+.np16 .np-structure-fallback{display:none;align-items:center;justify-content:center;flex-direction:column;min-height:265px;border:1px dashed #a9c4b2;background:#eaf0e8;border-radius:8px;padding:18px;text-align:center;gap:9px}
+.np16 .np-structure-fallback strong{font:700 23px/1.15 Georgia,serif;color:#174732}
+.np16 .np-structure-fallback span{font:11px/1.5 Arial,sans-serif;color:#3b634b}
+.np16 .np-bacteria-copy{padding:24px 29px 26px 0}
+.np16 .np-bacteria-copy p{margin-bottom:11px}
+.np16 .np-bacteria-copy .np-facts{margin:11px 0}
+.np16 .np-science-asterisk{font:10.5px/1.55 Arial,sans-serif;color:#63806a;margin-top:13px}
+@media(max-width:900px){.np16 .np-study-grid{grid-template-columns:1fr}.np16 .np-study-visual{height:225px}.np16 .np-kribbella{grid-template-columns:1fr}.np16 .np-bacteria-copy{padding:24px}}
+@media(max-width:600px){.np16 .np-quant{display:block}.np16 .np-quant strong{display:block;margin-bottom:4px}.np16 .np-structure-original{height:280px}}
+
+.np16 .np-bacteria-published-v18{background:#fbfaf6;min-height:385px;padding:16px 20px;display:flex;gap:12px;flex-direction:column;justify-content:space-around}
+.np16 .np-bacteria-published-v18:after{display:none}
+.np16 .np-bacteria-published-v18 .np-structure-original{width:100%;height:305px;object-fit:contain;border:0;max-width:100%;background:transparent}
+.np16 .np-bacteria-published-v18 .np-visual-tag{z-index:0}
+.np16 .np-bacteria-published-v18 .np-structure-ref{font-size:10px;line-height:1.5}
+@media(max-width:700px){.np16 .np-bacteria-published-v18{min-height:350px}.np16 .np-bacteria-published-v18 .np-structure-original{height:260px}}
+
+
+/* biotransformations study detail V18 */
+.bio18 .np-hero-inner{min-height:325px;grid-template-columns:minmax(0,1fr) 35%}
+.bio18 .np-hero-img{aspect-ratio:1/.72}
+.bio18 .np-hero-img img{width:100%;height:100%;object-fit:cover;filter:none}
+.bio18 .np-hero-img{border-radius:12px;background:#dde8dc}
+.bio18 .np-study-visual{height:274px;background:#fff}
+.bio18 .np-study-visual img{height:238px;mix-blend-mode:normal;object-fit:contain}
+.bio18 .np-study-visual svg{width:100%;height:auto;max-height:245px}
+.bio18 .np-results{margin:10px 0 14px}
+.bio18 .np-paper{padding-top:12px}
+.bio18 .bio-chart-tag{font:700 10px Arial,sans-serif;letter-spacing:.1em;color:#337954}
+.bio18 .bio-metric{background:#edf4ea;border-left:4px solid #34825d;display:flex;align-items:center;gap:12px;padding:14px 17px;border-radius:0 8px 8px 0;margin:13px 0}
+.bio18 .bio-metric strong{font:700 25px Georgia,serif;color:#17583b;white-space:nowrap}
+.bio18 .bio-metric span{font:12px/1.5 Arial,sans-serif;color:#43624e}
+.bio18 .bio-lab{border:1px solid #d5e2d5;border-radius:12px;background:#f1f6ec;display:grid;grid-template-columns:1fr 28% 28%;gap:19px;padding:26px 28px;align-items:center;margin:25px 0}
+.bio18 .bio-lab h3{font:700 23px Georgia,serif;color:#173d2b;margin:0 0 12px}
+.bio18 .bio-lab p{font:13px/1.7 Arial,sans-serif;color:#415b49;margin:0}
+.bio18 .bio-lab-photo{width:100%;height:176px;display:grid;place-items:center;overflow:hidden;border-radius:9px;background:#e2eadd}
+.bio18 .bio-lab-photo img{max-width:112%;width:105%;height:113%;object-fit:contain}
+.bio18 .bio-caption{font:11px/1.6 Arial,sans-serif;color:#5c735e;margin:6px 0 0}
+.bio18 .bio-review{display:grid;grid-template-columns:32% 1fr;gap:34px;padding:31px 34px;background:#e9f0e7;border-radius:12px;border:1px solid #d0dece;margin:40px 0 37px}
+.bio18 .bio-review h3{font:700 24px/1.18 Georgia,serif;color:#103d2a;margin:6px 0 12px}
+.bio18 .bio-review p{font:13px/1.7 Arial,sans-serif;color:#344f3c;margin:0 0 12px}
+.bio18 .bio-meta-line{color:#6e8373;font:11px/1.5 Arial,sans-serif;margin-top:8px}
+.bio18 .bio-negative{background:#f3f4ec;border:1px solid #e1e6d9;border-left:4px solid #a3aa77;border-radius:0 7px 7px 0;padding:13px 16px;margin:15px 0}
+.bio18 .bio-negative strong{font:700 13px/1.35 Arial,sans-serif;color:#3d513d}
+.bio18 .bio-negative p{margin:6px 0 0;font-size:12px}
+@media(max-width:900px){.bio18 .bio-lab{grid-template-columns:1fr 31%;}.bio18 .bio-lab-photo:last-child{display:none}}
+@media(max-width:680px){.bio18 .np-hero-inner{grid-template-columns:1fr}.bio18 .bio-lab{display:block}.bio18 .bio-lab-photo{display:none}.bio18 .bio-review{grid-template-columns:1fr;padding:22px}}
+
+/* V19: review-led narrative, scaffold relevance and indinavir connection */
+.bio18 .bio-review{margin:25px 0 20px;grid-template-columns:30% 1fr;background:#e9f0e7;padding:30px 34px}
+.bio18 .bio-review h3{font-size:25px;line-height:1.18}
+.bio18 .bio-review .bio-review-context{font-size:12px;color:#41664d;padding-top:9px;border-top:1px solid #c7d7c7}
+.bio18 .np-section-heading{margin-top:37px}
+.bio18 .bio-scaffold-context{background:#f6f5ee;border:1px solid #e3e3d7;border-left:3px solid #77a08a;border-radius:0 7px 7px 0;padding:13px 16px;margin:7px 0 13px}
+.bio18 .bio-scaffold-context .bio-context-label{display:block;font:700 10px/1.4 Arial,sans-serif;letter-spacing:.11em;color:#547a5d;margin-bottom:7px}
+.bio18 .bio-scaffold-context p{font:12.5px/1.66 Arial,sans-serif;color:#405744;margin:0}
+.bio18 .bio-indinavir-feature{background:#edf3e8;border:1px solid #c4d5c3;border-radius:9px;overflow:hidden;margin:17px 0 19px;box-shadow:0 2px 7px rgba(22,66,42,.04)}
+.bio18 .bio-indinavir-title{padding:13px 17px 12px;background:#174e35;color:#fff;display:grid;gap:5px}
+.bio18 .bio-indinavir-title span{font:700 10px/1.1 Arial,sans-serif;letter-spacing:.12em;color:#c1e4ca}
+.bio18 .bio-indinavir-title strong{font:700 17px/1.28 Georgia,serif;color:#f4f8ed}
+.bio18 .bio-indinavir-body{padding:16px 18px 17px}
+.bio18 .bio-indinavir-values{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:15px}
+.bio18 .bio-indinavir-values>div{display:flex;flex-direction:column;gap:3px;padding:10px 12px;background:#f8fcf5;border:1px solid #d7e3d2;border-radius:6px}
+.bio18 .bio-indinavir-values strong{font:700 27px/1.05 Georgia,serif;color:#1d704b}
+.bio18 .bio-indinavir-values span{font:10.5px/1.3 Arial,sans-serif;color:#46644b}
+.bio18 .bio-indinavir-feature p{font:12.5px/1.65 Arial,sans-serif;margin:0;color:#314e3a}
+@media(max-width:680px){.bio18 .bio-review{margin:21px 0 13px;padding:20px 21px}.bio18 .bio-indinavir-values strong{font-size:23px}}
+
+/* V21 research methods: native HTML, responsive diagrams */
+.np16 .wf21{margin:28px 0 37px;padding:24px 26px 23px;border:1px solid #ceded0;border-radius:12px;background:linear-gradient(120deg,#eff5ec,#f9fbf5 72%);box-shadow:0 2px 16px rgba(18,58,35,.035)}
+.np16 .wf21-top{display:flex;align-items:baseline;justify-content:space-between;gap:26px;margin-bottom:16px}
+.np16 .wf21-top h2{font:700 22px/1.2 Georgia,serif;color:#194932;margin:0}
+.np16 .wf21-top p{max-width:400px;text-align:right;font:11.5px/1.5 Arial,sans-serif;color:#617b66;margin:0}
+.np16 .wf21-items{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px;align-items:stretch;counter-reset:wf-step}
+.np16 .wf21-step{position:relative;min-height:124px;padding:12px 9px 12px 11px;border:1px solid #d9e7d6;border-radius:8px;background:#fffefa;display:flex;flex-direction:column;gap:9px;counter-increment:wf-step}
+.np16 .wf21-step:not(:last-child):after{content:'›';position:absolute;z-index:4;right:-11px;top:38px;font:700 23px Georgia,serif;color:#3a8862}
+.np16 .wf21-step-num{font:700 10px/1.2 Arial,sans-serif;letter-spacing:.09em;color:#679478}
+.np16 .wf21-step strong{font:700 12px/1.27 Arial,sans-serif;color:#1c5139}
+.np16 .wf21-step small{font:11px/1.3 Arial,sans-serif;color:#58725f}
+.np16 .wf21-bottom{margin:14px 0 0;font:11.5px/1.55 Arial,sans-serif;color:#526b59}
+.np16 .wf21-bottom strong{color:#2e6e4d}
+@media(max-width:1030px){.np16 .wf21-items{grid-template-columns:repeat(4,minmax(0,1fr))}.np16 .wf21-step:nth-child(4):after{display:none}.np16 .wf21-top{display:block}.np16 .wf21-top p{text-align:left;margin:7px 0 0}}
+@media(max-width:680px){.np16 .wf21{padding:17px}.np16 .wf21-items{grid-template-columns:repeat(2,minmax(0,1fr))}.np16 .wf21-step{min-height:113px}.np16 .wf21-step:nth-child(even):after{display:none}}
+
+/* V21 research methods: native HTML, responsive diagrams */
+.np16 .wf21{margin:28px 0 37px;padding:24px 26px 23px;border:1px solid #ceded0;border-radius:12px;background:linear-gradient(120deg,#eff5ec,#f9fbf5 72%);box-shadow:0 2px 16px rgba(18,58,35,.035)}
+.np16 .wf21-top{display:flex;align-items:baseline;justify-content:space-between;gap:26px;margin-bottom:16px}
+.np16 .wf21-top h2{font:700 22px/1.2 Georgia,serif;color:#194932;margin:0}
+.np16 .wf21-top p{max-width:400px;text-align:right;font:11.5px/1.5 Arial,sans-serif;color:#617b66;margin:0}
+.np16 .wf21-items{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px;align-items:stretch;counter-reset:wf-step}
+.np16 .wf21-step{position:relative;min-height:124px;padding:12px 9px 12px 11px;border:1px solid #d9e7d6;border-radius:8px;background:#fffefa;display:flex;flex-direction:column;gap:9px;counter-increment:wf-step}
+.np16 .wf21-step:not(:last-child):after{content:'›';position:absolute;z-index:4;right:-11px;top:38px;font:700 23px Georgia,serif;color:#3a8862}
+.np16 .wf21-step-num{font:700 10px/1.2 Arial,sans-serif;letter-spacing:.09em;color:#679478}
+.np16 .wf21-step strong{font:700 12px/1.27 Arial,sans-serif;color:#1c5139}
+.np16 .wf21-step small{font:11px/1.3 Arial,sans-serif;color:#58725f}
+.np16 .wf21-bottom{margin:14px 0 0;font:11.5px/1.55 Arial,sans-serif;color:#526b59}
+.np16 .wf21-bottom strong{color:#2e6e4d}
+@media(max-width:1030px){.np16 .wf21-items{grid-template-columns:repeat(4,minmax(0,1fr))}.np16 .wf21-step:nth-child(4):after{display:none}.np16 .wf21-top{display:block}.np16 .wf21-top p{text-align:left;margin:7px 0 0}}
+@media(max-width:680px){.np16 .wf21{padding:17px}.np16 .wf21-items{grid-template-columns:repeat(2,minmax(0,1fr))}.np16 .wf21-step{min-height:113px}.np16 .wf21-step:nth-child(even):after{display:none}}
+
+/* V21 structural elucidation: editorial methodology page */
+.comp21 .np-hero-inner{grid-template-columns:minmax(0,1fr) 32%}
+.comp21 .np-hero-img{aspect-ratio:1/.92;background:#e9ede6}
+.comp21 .np-hero-img img{width:94%;height:94%;object-fit:contain}
+.comp21 .comp-intro{margin-bottom:24px}
+.comp21 .comp-wf{padding:29px 31px;margin:27px 0 35px}
+.comp21 .comp-wf .wf21-items{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px 16px}
+.comp21 .comp-wf .wf21-step{min-height:116px;padding:15px 17px}
+.comp21 .comp-wf .wf21-step:nth-child(4):after{display:none}
+.comp21 .comp-wf .wf21-step:nth-child(n+5){background:#f6f9f2}
+.comp21 .comp-cases{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin:22px 0 30px}
+.comp21 .comp-feature{padding:27px 29px;border-radius:12px;background:#fffefa;border:1px solid #d5e2d4}
+.comp21 .comp-feature .comp-kicker{font:700 10px/1.3 Arial,sans-serif;letter-spacing:.12em;color:#5b9570}
+.comp21 .comp-feature h3{margin:10px 0 11px;font:700 24px/1.14 Georgia,serif;color:#153d2b}
+.comp21 .comp-feature p{margin:0 0 14px;font:13.3px/1.74 Arial,sans-serif;color:#345442}
+.comp21 .comp-feature a{font:700 12px/1.5 Arial,sans-serif;color:#177348}
+.comp21 .comp-results{margin:15px 0 19px;padding:14px 17px;background:#eff5eb;border-radius:8px;border-left:3px solid #479368}
+.comp21 .comp-results strong{display:block;font:700 11px/1.3 Arial,sans-serif;letter-spacing:.08em;color:#28734b;margin-bottom:8px}
+.comp21 .comp-results ul{margin:0;padding-left:17px;font:12px/1.6 Arial,sans-serif;color:#345745}
+.comp21 .comp-galway{grid-column:1/-1;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;background:linear-gradient(115deg,#e4ece3,#f8fbf4 80%);align-items:center}
+.comp21 .comp-galway h3{font-size:28px}
+.comp21 .comp-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.comp21 .comp-pair > div{background:#fffdf8;border:1px solid #cad9ca;border-radius:9px;padding:20px 15px;min-height:164px}
+.comp21 .comp-pair span{font:700 10px Arial,sans-serif;letter-spacing:.08em;color:#46765d}
+.comp21 .comp-pair strong{display:block;margin:11px 0;font:700 22px/1.09 Georgia,serif;color:#1b6343}
+.comp21 .comp-pair small{font:12px/1.48 Arial,sans-serif;color:#506a56}
+.comp21 .comp-source-visual{height:194px;background:#f9f9f5;border-radius:7px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin:14px 0;border:1px solid #e4e9de}
+.comp21 .comp-source-visual img{width:100%;height:100%;object-fit:contain}
+.comp21 .comp-caveat{padding:14px 20px;background:#eff3eb;border-left:3px solid #8aa48f;font:12px/1.65 Arial,sans-serif;color:#536957;border-radius:0 5px 5px 0;margin:22px 0 31px}
+@media(max-width:900px){.comp21 .comp-galway{grid-template-columns:1fr}.comp21 .comp-wf .wf21-items{grid-template-columns:repeat(2,minmax(0,1fr))}.comp21 .comp-wf .wf21-step:nth-child(even):after{display:none}}
+@media(max-width:680px){.comp21 .np-hero-inner{grid-template-columns:1fr}.comp21 .comp-cases{grid-template-columns:1fr}.comp21 .comp-galway{grid-column:1}.comp21 .comp-pair{grid-template-columns:1fr}.comp21 .comp-wf{padding:17px}.comp21 .comp-feature{padding:20px}}
+</style></head><body><div class="site-frame"><header class="site-header"><div class="header-inner"><a aria-label="Go to homepage" class="brand" href="index.html#home"><svg aria-hidden="true" class="brand-symbol" fill="none" stroke="currentColor" stroke-width="1.25" viewbox="0 0 50 50"><path d="M16 5 27 11v13l-11 6L5 24V11Zm11 19 11 6v12l-11 6-11-6V30"></path><path d="m16 5 3-4M5 24l-3 3m36 3 6-3m-6 15 4 5"></path></svg><span class="brand-copy"><strong>Jorge Roca Virués de Segovia</strong><small>Natural Products Chemistry &amp; Metabolomics</small></span></a><nav aria-label="Main navigation" class="main-nav"><a data-nav="home" href="index.html#home">Home</a><a aria-current="page" data-nav="research" href="index.html#research">Research</a><a data-nav="work" href="index.html#work">Current Work</a><a data-nav="publications" href="index.html#publications">Publications</a><a data-nav="cv" href="index.html#cv">CV &amp; Contact</a></nav></div></header>
+<main class="np16 comp21" id="structural-main">
+<section class="np-hero"><div class="np-shell np-hero-inner"><div>
+<a class="np-back" href="index.html#research">← Back to Research</a>
+<span class="np-eyebrow">RESEARCH AREA / 03 · CROSS-CUTTING METHODOLOGY</span>
+<h1>Structural elucidation<br/>&amp; computational analysis</h1>
+<p>Combining experimental NMR and ECD measurements with conformational analysis and quantum-chemical calculations to resolve complex molecular structures and their relative or absolute stereochemistry.</p>
+</div><div class="np-hero-img"><img alt="Three-dimensional image of compound 10 supplied by the researcher; shown as a molecular illustration, not claimed as a Gaussian geometry" src="assets/img/compound-10-portrait-card.jpg"/><div class="np-img-label">Researcher-provided 3D molecular image · illustrative of computational modelling</div></div></div></section>
+<div class="np-shell">
+<section class="np-intro comp-intro"><h2>Connecting experimental evidence with molecular modelling</h2><div class="np-intro-text">
+<p>A structure proposed from HRMS and NMR must sometimes be distinguished from several plausible regioisomers or stereoisomers. Conformational exploration and computational predictions provide independent evidence to test competing assignments against experimental observations, rather than replacing spectroscopic interpretation.</p>
+<p>The workflow below is representative of our computational studies. <strong>Calculated NMR shifts and DP4+</strong> can support relative stereochemical discrimination; <strong>experimental vs TD-DFT ECD spectra</strong> support absolute-configuration analysis. Measured coupling constants, NOE correlations and chemical context constrain and strengthen these assignments. Not every compound requires every technique.</p>
+<div class="np-methods"><span>Maestro / MacroModel</span><span>Gaussian 16 / DFT</span><span>GIAO NMR &amp; J</span><span>DP4+</span><span>TD-DFT / ECD</span><span>SpecDis</span></div>
+</div></section>
+<section class="wf21 comp-wf" aria-label="Computational stereochemical assignment workflow">
+<div class="wf21-top"><h2>Computational elucidation workflow</h2><p>From molecular hypothesis to an experimentally supported stereochemical assignment.</p></div>
+<div class="wf21-items"><div class="wf21-step"><span class="wf21-step-num">01 / WORKFLOW</span><strong>Experimental constraints</strong><small>HRMS formula; 1D/2D NMR; coupling constants / NOESY or ROESY.</small></div><div class="wf21-step"><span class="wf21-step-num">02 / WORKFLOW</span><strong>Molecular models</strong><small>Construct plausible stereoisomers and conformers in Maestro.</small></div><div class="wf21-step"><span class="wf21-step-num">03 / WORKFLOW</span><strong>Conformational search</strong><small>MacroModel / Monte Carlo sampling for candidate structures.</small></div><div class="wf21-step"><span class="wf21-step-num">04 / WORKFLOW</span><strong>Filtering &amp; ranking</strong><small>Remove RMSD duplicates (e.g. 0.5 Å); rank by energy and restraints.</small></div><div class="wf21-step"><span class="wf21-step-num">05 / WORKFLOW</span><strong>DFT geometry</strong><small>Optimise relevant conformers and confirm minima with frequencies.</small></div><div class="wf21-step"><span class="wf21-step-num">06 / WORKFLOW</span><strong>Spectroscopic prediction</strong><small>GIAO NMR shifts / J couplings and TD-DFT ECD as applicable.</small></div><div class="wf21-step"><span class="wf21-step-num">07 / WORKFLOW</span><strong>Statistical / ECD comparison</strong><small>Boltzmann averages, DP4+ probabilities and calculated vs experimental ECD.</small></div><div class="wf21-step"><span class="wf21-step-num">08 / WORKFLOW</span><strong>Stereochemical assignment</strong><small>Integrate NMR, NOE, J and ECD evidence to assign relative / absolute configuration.</small></div></div>
+<p class="wf21-bottom"><strong>Two complementary evidence streams:</strong> chemical-shift predictions, coupling constants and DP4+ primarily inform relative stereochemistry; ECD spectra interpreted with TD-DFT assist absolute-configuration assignment. Solvent effects and conformer populations are accounted for when appropriate.</p>
+</section>
+<div class="np-section-heading"><div><span class="np-eyebrow">PEER-REVIEWED APPLICATIONS</span><h2>Published stereochemical case studies</h2></div><p>Examples of how calculations support experimental natural-product research.</p></div>
+<section class="comp-cases">
+<article class="comp-feature comp-galway">
+<div><span class="comp-kicker">01 / JOURNAL OF NATURAL PRODUCTS · 2025 / UNIVERSITY OF GALWAY</span>
+<h3>Contignasterines A &amp; B: unusual marine sponge steroids</h3>
+<p>Two new 2-aminoimidazole-containing steroids were characterised from <em>Neopetrosia</em> cf. <em>rava</em>. Computational conformational analysis and TD-DFT ECD calculations contributed to the stereochemical study, complementing detailed NMR/ROESY evidence. In particular, the experimental ECD spectrum of <strong>contignasterine A</strong> closely matched the calculated spectrum, supporting its absolute configuration.</p>
+<div class="comp-results"><strong>SELECTED SCIENTIFIC OUTPUTS</strong><ul>
+<li><strong>Two novel steroidal metabolites</strong>, one with an unusual phosphate substituent.</li>
+<li>A rare <strong>cis</strong> C/D ring junction for contignasterine A, contrasting with the <strong>trans</strong> junction in contignasterine B.</li>
+<li>Combined conformational and spectroscopic evidence clarified the stereochemical analysis; the paper also reported anti-inflammatory assays.</li>
+</ul></div>
+<p>The paper's author-contribution statement explicitly credits J. R. Virués-Segovia with performing the computational calculations alongside J. O. Vidal.</p>
+<a href="https://doi.org/10.1021/acs.jnatprod.5c00118" target="_blank" rel="noopener noreferrer">Read publication · Journal of Natural Products 88, 1244–1252 ↗</a>
+</div>
+<div class="comp-pair" aria-label="Comparison of the two published steroid structures">
+<div><span>CONTIGNASTERINE A</span><strong>cis C/D</strong><small>Calculated and experimental ECD support the stereochemical assignment</small></div>
+<div><span>CONTIGNASTERINE B</span><strong>trans C/D</strong><small>Opposite C/D-ring junction, supported by NMR and experimental ECD</small></div>
+</div>
+</article>
+<article class="comp-feature"><span class="comp-kicker">02 / MARINE DRUGS · 2023</span><h3>ECD-assisted assignment of fungal eremophilanes</h3>
+<div class="comp-source-visual"><img alt="Published experimental-versus-calculated ECD spectra from the Marine Drugs (2023) eremophilane study" src="assets/img/figures/ecd-marine-drugs-2023.jpg"/></div>
+<p>Experimental ECD curves were compared with TD-DFT spectra to support stereochemical characterization of newly reported eremophilane-type sesquiterpenes from <em>Emericellopsis maritima</em>. The calculated spectra complement 1D/2D NMR and other spectroscopic evidence.</p>
+<div class="comp-results"><strong>METHODS IN CONTEXT</strong><ul><li>Conformer-based ECD calculation and spectral comparison.</li><li>Structural interpretation integrated with HRMS and NMR.</li></ul></div>
+<a href="https://doi.org/10.3390/md21120634" target="_blank" rel="noopener noreferrer">Read publication · Marine Drugs (2023) ↗</a>
+</article>
+<article class="comp-feature"><span class="comp-kicker">03 / IJMS &amp; JMSE · 2025</span><h3>Stereochemical characterization of biotransformation products</h3>
+<div class="comp-source-visual"><img alt="Published structural transformation scheme from thiochroman biotransformation study, IJMS (2025)" src="assets/img/figures/biotransformation-ijms-2025.jpg"/></div>
+<p>Stereoisomeric thiochroman sulfoxides and the new ring-opened product <strong>(S)-6a</strong> were assigned using Mosher-type NMR derivatization, experimental ECD and TD-DFT calculations. In a separate indane/phenylpropyl study, ECD and optical rotation dispersion computations supported assignments of optically active products.</p>
+<div class="comp-results"><strong>SELECTED SCIENTIFIC OUTPUTS</strong><ul><li>Mosher analysis with computational ECD confirmation for sulfoxide stereoisomers.</li><li>ECD / ORD applied to indane and phenylpropyl derivatives.</li><li>Chiral HPLC independently quantified enantio- and diastereoselectivity.</li></ul></div>
+<a href="https://doi.org/10.3390/ijms26030908" target="_blank" rel="noopener noreferrer">Thiochromans · IJMS (2025) ↗</a><br/>
+<a href="https://doi.org/10.3390/jmse13081386" target="_blank" rel="noopener noreferrer">Indane &amp; phenylpropyl derivatives · JMSE (2025) ↗</a>
+</article>
+</section>
+<div class="comp-caveat"><strong>About the molecular illustration:</strong> the three-dimensional structure shown in the hero is researcher-supplied visual material. It is not presented as a Gaussian-optimised geometry, and unpublished stereochemical assignments or calculations are not reported here as published findings. The workflow is a representative methodological synthesis; exact computation levels varied between studies.</div>
+</div>
+<div class="np-foot"><span>© 2026 Jorge Roca Virués de Segovia · Selected peer-reviewed research</span><a href="index.html#research">← All research areas</a></div>
+</main></div></body></html>
