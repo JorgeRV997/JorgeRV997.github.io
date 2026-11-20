@@ -1,0 +1,175 @@
+/* Header and keyboard navigation, shared by the overview and research pages. */
+.site-header { height: auto; }
+.site-header .header-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 30px;
+  padding: 12px clamp(18px, 4vw, 60px);
+}
+.site-header .brand { min-width: 0; }
+.site-header .brand-symbol { width: 40px; height: 44px; }
+.site-header .brand-copy { white-space: normal; }
+.site-header .brand-copy strong { font-size: clamp(16px, 1.55vw, 23px); line-height: 1.13; }
+.site-header .brand-copy small { font-size: 12px; line-height: 1.4; }
+.site-header .main-nav {
+  position: static; transform: none; width: auto; height: auto; overflow: visible;
+  display: flex; align-items: center; gap: clamp(12px, 2vw, 36px);
+}
+.site-header .main-nav a { min-height: 44px; font-size: 14px; line-height: 1.25; white-space: nowrap; }
+.site-header .main-nav a[aria-current="page"]::after { bottom: 3px; }
+.site-header [hidden] { display: none; }
+.menu-toggle {
+  flex: none; display: inline-flex; gap: 7px; align-items: center; justify-content: center;
+  min-height: 44px; padding: 0 12px; font: 600 14px var(--sans);
+  color: white; border: 1px solid #709083; border-radius: 6px; background: transparent;
+}
+:where(a, button, summary):focus-visible { outline: 3px solid #16784c; outline-offset: 3px; }
+.site-header :focus-visible { outline-color: #f6dc9c; }
+main:focus:not(:focus-visible) { outline: none; }
+
+/* Keep the specimen and chemical drawing in distinct columns from the text. */
+.home-hero-v5 {
+  display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, .6fr) minmax(0, 1fr);
+  grid-template-areas: "copy molecule culture"; align-items: center;
+  gap: clamp(14px, 2.5vw, 44px); padding: clamp(30px, 4vw, 66px) 5%;
+  height: auto; min-height: 340px;
+  background: linear-gradient(108deg, #fcfbf3 20%, #e9eddf 59%, #adc1ae);
+}
+.hero-glow-v5 { display: none; }
+.hero-copy-v5, .hero-molecule-v5, .hero-photo-v5 {
+  position: static; inset: auto; width: auto; height: auto; transform: none;
+}
+.hero-copy-v5 { grid-area: copy; }
+.hero-copy-v5 h1 { font-size: clamp(40px, 4.5vw, 73px); line-height: 1.02; max-width: 15ch; text-wrap: balance; }
+.hero-copy-v5 p { width: auto; max-width: 45ch; font-size: 17px; line-height: 1.5; }
+.eyebrow-v5 { font-size: 11px; line-height: 1.45; }
+.hero-photo-v5 {
+  grid-area: culture; width: 100%; max-width: 335px; justify-self: center;
+  opacity: 1; filter: drop-shadow(0 7px 9px #304f373e);
+}
+.hero-photo-v5 img { display: block; }
+.hero-molecule-v5 { grid-area: molecule; display: grid; justify-items: center; gap: 10px; filter: none; }
+.hero-molecule-v5 img { width: min(100%, 164px); height: auto; max-height: none; }
+.hero-molecule-v5 span { display: block; max-width: 22ch; font-size: 12px; line-height: 1.4; color: #344b3d; text-shadow: none; text-align: center; opacity: 1; }
+.home-highlight-text-v5 { min-width: 0; height: auto; min-height: 0; padding: 19px 16px; gap: 9px; }
+.home-highlight-text-v5 h3 { font-size: clamp(20px, 1.65vw, 26px); line-height: 1.16; text-wrap: pretty; }
+.home-highlight-text-v5 p, .home-about-v5 p, .home-cv-v5 p { font-size: 15.5px; line-height: 1.55; }
+.home-highlight-kicker-v5, .home-cv-label-v5 { font-size: 11px; }
+.read-more-v5, .cv-link-v5, .primary-button-v5 { font-size: 14px; }
+.home-highlight-v5 .plate-feature-v5 img { width: 95% !important; height: 100% !important; inset: 0; margin: auto; }
+.home-bottom-v5 { margin-top: 12px; }
+
+/* Publication titles, evidence and links all have their own reading order. */
+.view-publications-v24 .paper-entry {
+  display: grid; grid-template-columns: 108px minmax(0,1fr); grid-template-areas: "cover heading" "cover body";
+  gap: 9px clamp(16px, 2.4vw, 38px); align-items: start;
+  padding: clamp(22px, 3vw, 42px) 0; border-bottom: 1px solid #ced9cd;
+}
+.paper-entry .journal-cover { grid-area: cover; width: 100%; align-self: start; }
+.paper-heading { grid-area: heading; min-width: 0; }
+.paper-body { grid-area: body; min-width: 0; }
+.paper-heading h2 { max-width: 62ch; margin: 6px 0 0; font: 700 clamp(21px, 2vw, 30px)/1.18 var(--serif); color: #143f2b; }
+.paper-heading a:hover, .paper-source:hover, .paper-authors summary:hover { text-decoration: underline; text-underline-offset: 3px; }
+.paper-body p { max-width: 85ch; margin: 4px 0 10px; font: 16px/1.62 var(--sans); color: #30483b; }
+.paper-authors { margin: 3px 0 8px; }
+.paper-authors summary, .paper-source { width: fit-content; padding: 9px 0; color: #155d3e; font: 650 15px/1.45 var(--sans); cursor: pointer; }
+.paper-entry .paper-authors .pub-authors { display: block; max-width: 84ch; margin: 0 0 10px; font-size: 15px; line-height: 1.55; }
+.paper-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+.paper-entry .pub-badges, .paper-entry .pub-metric { margin: 0; }
+.paper-entry .pub-journal, .paper-entry .paper-pill, .paper-entry .open-pill, .paper-entry .pub-metric { font-size: 12px; line-height: 1.4; }
+.paper-source { display: inline-flex; gap: 7px; align-items: center; min-height: 44px; }
+.view-publications-v24 .pub-intro { margin-bottom: 16px; }
+
+/* Readable research narratives, figure access and methods. */
+.site-frame main :is(.r14-page,.cw22,.cvv11) p,
+.np16 .np-shell p { font-size: 16px; line-height: 1.62; }
+.np16 .np-shell li { font-size: 15px; line-height: 1.55; }
+.np16 .np-shell .np-study-id, .np16 .np-shell .np-eyebrow,
+.np16 .np-shell .np-results-title, .cvv11 .cv11-eyebrow, .cw22 .cw22-overline { font-size: 11px; line-height: 1.45; }
+.np16 .np-shell .np-img-label, .np16 .np-shell .np-caption, .np16 .np-shell .np-methods span,
+.site-frame .cvv11 .cv11-photo-credits { font-size: 12px; line-height: 1.5; }
+.np16 .np-shell .np-paper, .np16 .np-back, .r14-page .r14-open { font-size: 14px; min-height: 44px; }
+.np16 .np-shell :is(.wf21-step,.np-hero-inner,.np-study-body) > * { min-width: 0; }
+.np16 .np-shell .wf21-step strong { font-size: 15px; line-height: 1.3; overflow-wrap: anywhere; }
+.np16 .np-shell .wf21-step small, .np16 .np-shell .np-study-meta span { font-size: 14px; line-height: 1.45; }
+.np16 .np-shell .wf21-items { grid-template-columns: repeat(auto-fit,minmax(min(100%,155px),1fr)); }
+.np16 .np-shell .wf21-step::after { display: none; }
+.np16 .np-shell .np-study-visual, .np16 .np-shell .comp-source-visual {
+  height: auto; min-width: 0; padding: 12px; background: #fafbf7;
+}
+.figure-zoom { display: grid; justify-items: center; gap: 7px; width: 100%; color: #226445; }
+.np16 .np-shell .figure-zoom img { display: block; width: 100%; height: clamp(170px,20vw,265px); max-width: 100%; max-height: none; object-fit: contain; }
+.figure-zoom span { font: 600 13px/1.5 var(--sans); padding: 4px 8px; text-decoration: underline; text-underline-offset: 3px; }
+.cvv11 .cv11-photo-medina img { object-fit: contain; object-position: center; background: #fff; }
+.cvv11 .cv11-photo { background-color: #dce8d9; }
+.cvv11 .cv11-contact-grid small, .cvv11 .cv13-two-col .cv11-item small { font-size: 13px; line-height: 1.45; }
+.cvv11 .cv11-contact-grid b, .cvv11 .cv13-two-col .cv11-item b { font-size: 15px; line-height: 1.4; }
+.r14-page .r14-evidence span, .cw22 .cw22-question span, .cw22 .cw23-methods span { font-size: 13px; line-height: 1.45; }
+.np16 .np-shell .np-hero-img { height: auto; aspect-ratio: auto; display: grid; grid-template-rows: auto auto; }
+.np16 .np-shell .np-hero-img img { display: block; width: 100%; max-width: 100%; height: clamp(180px, 22vw, 300px); object-fit: contain; }
+.np16 .np-shell .np-img-label { position: static; width: 100%; padding: 9px 14px; border-radius: 0; }
+@media (max-width: 1050px) and (min-width: 761px) {
+  .site-header .header-inner { gap: 12px; padding-inline: 18px; }
+  .site-header .main-nav { gap: 14px; }
+}
+@media (max-width: 1190px) {
+  .home-highlight-grid-v5 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .home-highlight-v5 { grid-template-columns: 1fr; grid-template-rows: 145px 1fr; min-height: 0; }
+  .home-highlight-image-v5 { height: 145px; }
+  .home-highlight-text-v5 { min-height: 0; }
+}
+@media (max-width: 760px) {
+  .site-frame { width: 100%; margin: 0; border: 0; border-radius: 0; }
+  .site-header .header-inner { flex-wrap: wrap; gap: 0 8px; padding: 10px clamp(12px, 4%, 22px); }
+  .site-header .brand { flex: 1; gap: 8px; }
+  .site-header .brand-symbol { width: 30px; height: 34px; }
+  .site-header .brand-copy strong { font-size: 16px; }
+  .site-header .brand-copy small { font-size: 11.5px; }
+  .site-header .main-nav { flex: 1 0 100%; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 12px; width: 100%; padding: 9px 0 2px; }
+  .site-header .main-nav[hidden] { display: none; }
+  .site-header .main-nav a { width: fit-content; font-size: 15px; }
+  .home-hero-v5 {
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr); grid-template-areas: "copy copy" "molecule culture";
+    gap: 18px; min-height: 0; padding: 29px 6% 22px;
+    background: linear-gradient(150deg,#fcfbf4 20%,#eef1e6 63%,#c6d8c7);
+  }
+  .hero-copy-v5 h1 { font-size: clamp(37px, 8.6vw, 56px); margin: 10px 0; }
+  .hero-copy-v5 p { margin-bottom: 0; font-size: 16px; }
+  .hero-photo-v5 { max-width: 172px; }
+  .hero-molecule-v5 img { width: clamp(76px, 20vw, 116px); }
+  .hero-molecule-v5 span { max-width: 21ch; }
+  .home-highlight-grid-v5 { grid-template-columns: 1fr; gap: 13px; }
+  .home-highlight-v5 { grid-template-columns: minmax(78px, 29%) minmax(0,1fr); grid-template-rows: auto; }
+  .home-highlight-image-v5 { height: 100%; }
+  .home-highlight-text-v5 { padding: 15px clamp(13px, 3.5vw, 22px); }
+  .home-bottom-v5 { grid-template-columns: 1fr; align-items: start; gap: 16px; }
+  .home-bottom-v5 .coastal-v5 { width: 100%; height: auto; max-height: 200px; object-fit: cover; }
+  .home-bottom-v5 .home-cv-v5 { grid-column: auto; }
+  .cvv11 .cv11-timeline-grid, .cvv11 .cv13-editorial-grid, .cvv11 .cv11-collab-grid { grid-template-columns: 1fr; }
+  .r14-page .r14-hero { height: auto; }
+  .r14-page .r14-hero-copy { width: 100%; background: linear-gradient(95deg,#f8f8f1 52%,#f3f6eae8); }
+  .cw22 .cw22-section-heading { display: grid; gap: 8px; }
+  .np16 .np-shell { padding-inline: clamp(16px,4vw,28px); }
+  .np16 .np-hero-inner { grid-template-columns: minmax(0,1fr); gap: 19px; }
+}
+.view-publications-v24 .pub-metrics-note { font-size: 13px; }
+@media (max-width: 600px) {
+  .view-publications-v24 .paper-entry {
+    grid-template-columns: 1fr; grid-template-areas: "heading" "body"; gap: 8px;
+  }
+  .paper-entry .journal-cover { display: none; }
+  .paper-heading h2 { font-size: 23px; overflow-wrap: break-word; }
+  .paper-body p { margin-top: 2px; }
+  .cw22 .cw22-workflow, .cw22 .cw23-studies { grid-template-columns: 1fr; }
+  .np16 .np-shell .np-section-heading { display: grid; gap: 8px; }
+  .np16 .np-shell .np-section-heading p { text-align: left; }
+  .cvv11 .cv27-portrait-frame { float: none; width: 120px; margin: 12px 0 18px; }
+}
+.hero-molecule-v5 img { filter: brightness(0) saturate(100%) opacity(.84); }
+.hero-copy-v5 h1 { max-width: 18ch; }
+.hero-phrase { display: inline-block; }
+@media (max-width: 600px) {
+  .cw22 .cw22-phase::after { display: none; }
+}

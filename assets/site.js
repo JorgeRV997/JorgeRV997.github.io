@@ -3,6 +3,45 @@
   const valid = new Set(['home','research','work','publications','cv']);
   const views = [...document.querySelectorAll('[data-view]')];
   const links = [...document.querySelectorAll('[data-nav]')];
+  const nav = document.querySelector('.main-nav');
+  const toggle = document.querySelector('.menu-toggle');
+  const compact = window.matchMedia('(max-width: 760px)');
+  const main = document.querySelector('main');
+
+  function setMenu(open) {
+    if (!toggle || !nav) return;
+    toggle.hidden = !compact.matches;
+    nav.hidden = compact.matches && !open;
+    toggle.setAttribute('aria-expanded', String(compact.matches && open));
+  }
+
+  if (nav && toggle) {
+    setMenu(false);
+    compact.addEventListener('change', () => setMenu(false));
+    window.addEventListener('pageshow', () => setMenu(false));
+    toggle.addEventListener('click', () => setMenu(nav.hidden));
+    nav.addEventListener('click', event => {
+      if (!event.target.closest('a') || !compact.matches) return;
+      setMenu(false);
+      main?.focus({ preventScroll: true });
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && compact.matches && !nav.hidden) {
+        setMenu(false);
+        toggle.focus();
+      }
+    });
+  }
+
+  document.querySelector('.skip-link')?.addEventListener('click', event => {
+    if (!main) return;
+    event.preventDefault();
+    setMenu(false);
+    main.focus();
+    main.scrollIntoView({ block: 'start' });
+  });
+
+  if (!views.length) return;
   function navigate(hash = window.location.hash) {
     const key = String(hash).replace(/^#/, '') || 'home';
     const target = valid.has(key) ? key : 'home';
