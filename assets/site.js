@@ -41,6 +41,30 @@
     main.scrollIntoView({ block: 'start' });
   });
 
+  const strip = document.querySelector('.workflow-strip');
+  if (strip) {
+    const controls = strip.parentElement.querySelector('.workflow-controls');
+    const previous = controls.querySelector('.workflow-prev');
+    const next = controls.querySelector('.workflow-next');
+    function updateControls() {
+      const limit = strip.scrollWidth - strip.clientWidth;
+      controls.hidden = limit <= 1;
+      previous.disabled = strip.scrollLeft <= 1;
+      next.disabled = strip.scrollLeft >= limit - 1;
+    }
+    function shiftStep(direction) {
+      const cards = strip.children;
+      const stepWidth = cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+      const motion = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      strip.scrollBy({ left: direction * stepWidth, behavior: motion });
+    }
+    previous.addEventListener('click', () => shiftStep(-1));
+    next.addEventListener('click', () => shiftStep(1));
+    strip.addEventListener('scroll', updateControls, { passive: true });
+    new ResizeObserver(updateControls).observe(strip);
+    updateControls();
+  }
+
   if (!views.length) return;
   function navigate(hash = window.location.hash) {
     const key = String(hash).replace(/^#/, '') || 'home';
